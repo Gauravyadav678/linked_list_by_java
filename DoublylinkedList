@@ -1,0 +1,140 @@
+import java.util.Scanner;
+
+class Node
+{
+    int data;
+    Node next;
+    Node previopus;
+}
+public class DoublyLikedlist
+{
+    Node head;
+    DoublyLikedlist()
+    {
+        head=null;
+    }
+    public void insertlast(int value) {
+        Node newnode = new Node();
+        newnode.next = null;
+        newnode.previopus = null;
+        newnode.data =value;
+        if (head == null) {
+            head = newnode;
+        } else {
+
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newnode;
+            newnode.previopus = temp.next;
+        }
+    }
+    public void show()
+
+    {  if(head==null) {
+        System.out.println("empty list");
+    }  else {
+        Node i;
+        for (i =head; i!=null; i=i.next) {
+            System.out.print(i.data+" ");
+        }
+    }}
+    void addfront(int value)
+    {
+        if(head==null)
+        {
+            System.out.println("the list is empty");
+        }
+        else
+        {
+            Node newnode=new Node();
+            newnode.data=value;
+            newnode.next=head;
+            head.previopus=newnode.next;
+            head=newnode;
+        }
+    }
+    void deletefrombegining()
+    {
+        if(head==null)
+        {
+            System.out.println("empty");
+        }
+        else {
+            if (head.next==null)
+            {
+                head = null;
+            }
+            else
+                {
+                head = head.next;
+                head.previopus = null;
+               }
+        }
+    }
+   void deletefromlast() {
+       if (head == null) {
+           System.out.println("the list is empty");
+       } else {
+           if (head.next == null) {
+               head = null;
+           } else {
+               Node temp = head;
+               Node temp1 = null;
+               while (temp.next != null) {
+                   temp1 = temp;
+                   temp = temp.next;
+               }
+               temp1.next = null;
+           }
+       }
+   }
+    void deletespecificposition()
+       {
+           if(head==null)
+           {
+               System.out.println("you can't delete due to empty");
+           }
+           else
+           {
+               if(head.next==null)
+               {
+                   head=null;
+               }
+               else
+               {
+                   Node temp=head;
+                   Node temp1=null;
+                   int pos=3;
+                   for (int i = 0; i < pos-1; i++) {
+
+
+                       temp1=temp;
+                       temp=temp.next;
+                   } //temp1.next=temp.next;
+                   if(head.next==null)
+                   {
+                       head=null;
+                   }
+                   else {
+                       temp1.next = temp.next;
+                   }
+               }
+               }
+
+       }
+
+
+    public static void main(String[] args) {
+        DoublyLikedlist obj=new DoublyLikedlist();
+        obj.insertlast(4);
+        obj.insertlast(56);
+        obj.insertlast(39);
+        obj.insertlast(67);
+        obj.deletespecificposition();
+        obj.show();
+
+
+    }
+}
