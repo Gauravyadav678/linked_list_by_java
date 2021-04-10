@@ -1,0 +1,45 @@
+class Node
+{
+ int data;
+ Node left,right;
+ Node(int value)
+ {
+     data=value;
+     left=right=null;
+ }
+}
+class Treedata
+{
+    Node root;
+    Treedata(int value)
+    {
+        root=new Node(value);
+    }
+    Treedata()
+    {
+        root=null;
+    }
+    void display()
+    {
+        if (root==null)
+        {
+            System.out.println("the output is nothing");
+        }
+        else
+        {
+                System.out.println("the root is  "+root.data);
+                System.out.println("the data at the left node  "+root.left.data);
+                System.out.println("the data at the right node  "+root.right.data);
+        }
+    }
+
+    public static void main(String[] args) {
+        Treedata tree=new Treedata();
+        tree.root=new Node(2);
+        tree.root.left=new Node(3);
+        tree.root.right=new Node(4);
+        tree.root.left=new Node(6);
+        tree.display();
+    }
+}
+
